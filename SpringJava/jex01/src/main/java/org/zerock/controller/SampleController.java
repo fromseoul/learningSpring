@@ -8,14 +8,17 @@ public class SampleController {
     public void basic() {
         log.info("basic..............");
     }
+
+    @RequestMapping(value = "/basic", method = {RequestMethod.GET, RequestMethod.POST})
+    public void basicGet() { log.info("basic get.............."); }
+
+    @GetMapping("/basicOnlyGet")
+    public void basicGet2() { log.info("basic get only get.............."); }
+
+    @GetMapping("/ex01")
+    public String ex01(SampleDTO dto) {
+        log.info("" + dto);
+        return "ex01";
+    }
 }
 
-@RequestMapping(value = "/basic", method = {RequestMethod.GET, RequestMethod.POST})
-public void basicGet() {
-    log.info("basic get..............");
-}
-
-@GetMapping("/basicOnlyGet")
-public void basicGet2() {
-    log.info("basic get only get..............");
-}
